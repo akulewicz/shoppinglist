@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -7,26 +7,34 @@
     <title>Shopping List</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <header class="header">
-        <h1 class="header__title">Shopping List</h1>
+        <h1 class="heading">
+            <div class="heading-icon-box"><span class="material-icons heading-icon-box__icon">
+                    shopping_cart
+                </span></div>
+            <div class="heading-text-box">Lista<br>zakupów</div>
+        </h1>
     </header>
     <div class="products">
         <form class="form form--js">
             <p>
-                <input class="form__input form__input--js" type="text" name="product" id="product" aria-label="Enter new product">
-                <input class="form__button" type="submit" value="+" aria-label="Add product">
+                <input class="form__input form__input--js" type="text" name="product" id="product"
+                    aria-label="Wprowadź nazwę produktu">
+                <input class="form__button" type="submit" value="+" aria-label="Dodaj produkt">
             </p>
 
         </form>
         <ul class="products-list products-list--js">
-           
+
         </ul>
     </div>
+    <footer class="site-footer"><div class="footer-container"><a class="footer-container__link" href="https://github.com/akulewicz/shoppinglist"><img class="footer-container__img" src="img/github.png" alt="Logo serisu github przekierowujące do rezpozytorium aplikacji"></a></div></footer>
     <script src="main.js"></script>
 </body>
-
 </html>

@@ -3,11 +3,13 @@ const productsList = document.querySelector('.products-list--js');
 const products = [];
 
 const displayShoppingList = () => {
-    let html = '';
+    productsList.innerHTML = '';
     products.forEach(product => {
-        html += `<li class="products-list__item">${product}<i class="far fa-trash-alt delete"></i></li>`;
+        const li = document.createElement('li');
+        li.classList.add('products-list__item');
+        li.innerHTML = `${product}<i class="far fa-trash-alt products-list__delete-icon"></i>`;
+        productsList.prepend(li);
     })
-    productsList.innerHTML = html;
 }
 
 const addProduct = (newProduct) => {
@@ -22,4 +24,11 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const newProduct = product.value.trim();
     addProduct(newProduct);
+})
+
+productsList.addEventListener('click', e => {
+    if (e.target.classList.contains('products-list__delete-icon')) {
+        products.splice(products.indexOf(e.target.parentNode), 1);
+    }
+    displayShoppingList();
 })

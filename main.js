@@ -28,7 +28,7 @@ form.addEventListener('submit', e => {
 
 productsList.addEventListener('click', e => {
     if (e.target.classList.contains('products-list__delete-icon')) {
-        products.splice(products.indexOf(e.target.parentNode), 1);
+        products.splice(products.indexOf(e.target.parentNode.textContent), 1);
     }
     displayShoppingList();
 })

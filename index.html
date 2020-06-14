@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">Shopping List</h1>
+    </header>
+    <div class="products">
+        <form class="form form--js">
+            <p>
+                <input class="form__input form__input--js" type="text" name="product" aria-label="Enter new product">
+                <input class="form__button" type="submit" value="+" aria-label="Add product">
+            </p>
+
+        </form>
+        <ul class="products-list products-list--js">
+            <li class="products-list__item">Chleb<i class="far fa-trash-alt delete"></i></li>
+            <li class="products-list__item">Proszki do prania<i class="far fa-trash-alt delete"></i></li>
+            <li class="products-list__item">2 litry mleka<i class="far fa-trash-alt delete"></i></li>
+        </ul>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

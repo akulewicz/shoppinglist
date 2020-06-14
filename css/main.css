@@ -43,13 +43,13 @@ body {
 
 .heading-icon-box__icon {
     font-size: 50px;
-    border: 3px solid orange;
+    border: 3px solid #ffa500;
     border-radius: 50%;
     width: 80px;
     height: 80px;
     text-align: center;
     line-height: 80px;
-    color: orange;
+    color: #ffa500;
 }
 
 .heading-text-box {
@@ -110,4 +110,30 @@ body {
 .products-list__delete-icon {
     font-size: 18px;
     color: rgb(107, 52, 1);
+}
+
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.692);
+    height: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.footer-container__link {
+    
+}
+.footer-container__img {
+    height: 35px;
+    width: auto;
 }

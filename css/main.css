@@ -113,7 +113,7 @@ body {
 }
 
 .site-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -130,9 +130,6 @@ body {
     margin: 0 auto;
 }
 
-.footer-container__link {
-    
-}
 .footer-container__img {
     height: 35px;
     width: auto;

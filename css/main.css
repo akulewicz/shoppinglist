@@ -8,7 +8,7 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
-}git
+}
 
 body {
     background-image: url(img/background.jpg);

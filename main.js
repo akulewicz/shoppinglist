@@ -1,14 +1,17 @@
 const form = document.querySelector('.form--js');
 const productsList = document.querySelector('.products-list--js');
 
-const products = JSON.parse(localStorage.getItem('products'));
+const products = JSON.parse(localStorage.getItem('products')) || [];
 
 const displayShoppingList = () => {
-    productsList.innerHTML = '';
+    productsList.textContent = '';
     products.forEach(product => {
         const li = document.createElement('li');
+        const i = document.createElement('i');
         li.classList.add('products-list__item');
-        li.innerHTML = `${product}<i class="far fa-trash-alt products-list__delete-icon"></i>`;
+        i.classList.add('far', 'fa-trash-alt', 'products-list__delete-icon')
+        li.textContent = product;
+        li.append(i);
         productsList.prepend(li);
     })
 }
@@ -18,12 +21,17 @@ const updateShoppingList = () => {
     displayShoppingList();
 }
 
-const addProduct = (newProduct) => {
+const addProduct = newProduct => {
     if (newProduct.length) {
         products.push(newProduct);
     }
     form.reset();
     updateShoppingList();
+}
+
+const deleteProduct = product => {
+    products.splice(products.indexOf(product.parentNode.textContent), 1);
+    updateShoppingList(); 
 }
 
 if (products.length) {
@@ -38,7 +46,7 @@ form.addEventListener('submit', e => {
 
 productsList.addEventListener('click', e => {
     if (e.target.classList.contains('products-list__delete-icon')) {
-        products.splice(products.indexOf(e.target.parentNode.textContent), 1);
+        const product = e.target;
+        deleteProduct(product);
     }
-    updateShoppingList();  
 })

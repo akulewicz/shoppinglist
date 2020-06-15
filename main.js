@@ -1,6 +1,7 @@
 const form = document.querySelector('.form--js');
 const productsList = document.querySelector('.products-list--js');
-const products = [];
+
+const products = JSON.parse(localStorage.getItem('products'));
 
 const displayShoppingList = () => {
     productsList.innerHTML = '';
@@ -12,11 +13,20 @@ const displayShoppingList = () => {
     })
 }
 
+const updateShoppingList = () => {
+    localStorage.setItem('products', JSON.stringify(products));
+    displayShoppingList();
+}
+
 const addProduct = (newProduct) => {
     if (newProduct.length) {
         products.push(newProduct);
     }
     form.reset();
+    updateShoppingList();
+}
+
+if (products.length) {
     displayShoppingList();
 }
 
@@ -30,5 +40,5 @@ productsList.addEventListener('click', e => {
     if (e.target.classList.contains('products-list__delete-icon')) {
         products.splice(products.indexOf(e.target.parentNode.textContent), 1);
     }
-    displayShoppingList();
+    updateShoppingList();  
 })

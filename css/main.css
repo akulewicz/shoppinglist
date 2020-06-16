@@ -95,6 +95,7 @@ body {
     margin: 0 auto;
     list-style: none;
     padding: 10px;
+    padding-bottom: 50px;
 }
 
 .products-list__item {

@@ -26,6 +26,7 @@ const addProduct = e => {
         productsList.push(newProduct);
     }
     form.reset();
+    form.product.focus();
     updateShoppingList();
 }
 

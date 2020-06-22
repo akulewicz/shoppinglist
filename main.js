@@ -1,4 +1,4 @@
-import { displayShoppingList, addProduct, deleteProduct } from './modules/functions.js';
+import { displayShoppingList, addProduct, changeProductStatus } from './modules/functions.js';
 export { form, productsBox, productsList };
 
 const form = document.querySelector('.form--js');
@@ -10,4 +10,4 @@ if (productsList.length) {
 }
 
 form.addEventListener('submit', addProduct);
-productsBox.addEventListener('click', deleteProduct);
+productsBox.addEventListener('click', changeProductStatus);

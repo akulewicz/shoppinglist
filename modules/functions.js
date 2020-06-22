@@ -6,7 +6,7 @@ import {
 export {
     displayShoppingList,
     addProduct,
-    deleteProduct
+    changeProductStatus
 };
 
 const displayShoppingList = () => {
@@ -17,6 +17,7 @@ const displayShoppingList = () => {
         const span = document.createElement('span');
         li.classList.add('products-list__item');
         li.dataset.productId = index;
+        span.classList.add('product-list__item-text')
         span.textContent = product.name;
         if (product.done) {
             span.style.textDecoration = 'line-through';
@@ -47,16 +48,28 @@ const addProduct = e => {
     updateShoppingList();
 }
 
-const deleteProduct = e => {
-    const product = productsList[Math.round(e.target.dataset.productId)];
-    if (e.target.classList.contains('products-list__delete-icon')) {
-        productsList.splice(Math.round(e.target.parentNode.dataset.productId), 1);
+const deleteProduct = (index) => {
+    productsList.splice(index, 1);
+}
+
+const toggleDone = (product) => {
+    if (product.done) {
+        product.done = false;
     } else {
-        if (product.done) {
-            product.done = false;
-        } else {
-            product.done = true;
-        }
+        product.done = true;
+    }
+}
+
+const changeProductStatus = e => {
+    if (e.target.classList.contains('products-list__delete-icon')) {
+        const index = Math.round(e.target.parentNode.dataset.productId);
+        deleteProduct(index);
+    } else if (e.target.classList.contains('product-list__item-text')) {
+        let product = productsList[Math.round(e.target.parentNode.dataset.productId)];
+        toggleDone(product);
+    } else {
+        let product = productsList[Math.round(e.target.dataset.productId)];
+        toggleDone(product);
     }
     updateShoppingList();
 }

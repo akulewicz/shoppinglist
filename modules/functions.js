@@ -48,14 +48,14 @@ const addProduct = e => {
 }
 
 const deleteProduct = e => {
-    const product = e.target;
-    if (product.classList.contains('products-list__delete-icon')) {
-        productsList.splice(Math.round(product.parentNode.dataset.productId), 1);
+    const product = productsList[Math.round(e.target.dataset.productId)];
+    if (e.target.classList.contains('products-list__delete-icon')) {
+        productsList.splice(Math.round(e.target.parentNode.dataset.productId), 1);
     } else {
-        if (productsList[Math.round(product.dataset.productId)].done) {
-            productsList[Math.round(product.dataset.productId)].done = false;
+        if (product.done) {
+            product.done = false;
         } else {
-            productsList[Math.round(product.dataset.productId)].done = true;
+            product.done = true;
         }
     }
     updateShoppingList();

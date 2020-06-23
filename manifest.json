@@ -1,8 +1,8 @@
 {
     "name": "Moje zakupy",
     "short_name": "Moje zakupy",
-    "theme_color": "#422800",
-    "background_color": "#422800",
+    "theme_color": "#261700",
+    "background_color": "#261700",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/shoppinglist/",
